@@ -11,22 +11,22 @@ typedef struct{
 	int size; //Num de elementos de la lista
 	int capacity; //Max obj
 	int element_size;//tamaño de elementos
-}Arrlist;
+}Arraylist;
 
 //Crear o borrar listas
-Arrlist* createlist(int capacity, int element_size);
-void deletelist(Arrlist *list);
+Arraylist* arrayList_create(int initia_capacity, int element_size);
+void arrayList_destroy(Arraylist *list);
 
 //Operaciones
-void addlist(Arrlist *list, void *element); 
-void insertlist(Arrlist *list, void *element, int index); 
-void *getlist(Arrlist *list, int index); 
-int removelist(Arrlist *list, int index); 
-void clearlist(Arrlist *list);
+void arraylist_add(Arraylist *list, void *element); 
+void arraylist_insert(Arraylist *list, void *element, int index); 
+void *arraylist_get(Arraylist *list, int index); 
+int arraylist_remove(Arraylist *list, int index); 
+void arraylist_clear(Arraylist *list);
 
 //Adicionales pero importantes
-void adjust_capacity(Arrlist *list, int min_cap);
-void adjust_size(Arrlist *list);
-Arrlist* clonelist(Arrlist *list);
+void arraylist_ensure_capacity(Arraylist *list, int min_capacity);
+void arraylist_trim_to_size(Arraylist *list);
+Arraylist* arraylist_(Arraylist *list);
 
 #endif
