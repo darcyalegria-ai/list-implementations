@@ -1,9 +1,4 @@
 #include <stdio.h>
-
-int main() {
-	return 0;
-}
-
 #ifndef ARRAY_LIST_H
 #define ARRAY_LIST_H
 typedef struct{
@@ -14,8 +9,8 @@ typedef struct{
 }Arraylist;
 
 //Crear o borrar listas
-Arraylist* arrayList_create(int initia_capacity, int element_size);
-void arrayList_destroy(Arraylist *list);
+Arraylist* arraylist_create(int initial_capacity, int element_size);
+void arraylist_destroy(Arraylist *list);
 
 //Operaciones
 void arraylist_add(Arraylist *list, void *element); 
@@ -30,3 +25,4 @@ void arraylist_trim_to_size(Arraylist *list);
 Arraylist* arraylist_(Arraylist *list);
 
 #endif
+
