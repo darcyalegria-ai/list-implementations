@@ -8,16 +8,15 @@ typedef struct {
 } Persona;
 
 void imprimirPersona(Persona *p) {
-	printf("Nombre: %s \n", p->nombre);
-	printf("Edad: %d \n", p->edad);
+	printf("Nombre: %s, Edad: %d\n", p->nombre, p->edad);
 }
 
 int main() {
 	
-	
+
 	Arraylist*milista = arraylist_create(3, sizeof(Persona));
 	
-	
+
 	Persona p1 = {"Darcy", 20};
 	Persona p2 = {"Daniel", 30};
 	Persona p3 = {"Anyi", 25};
@@ -30,21 +29,27 @@ int main() {
 	arraylist_add(milista, &p3);
 	arraylist_add(milista, &p4);
 	
-	
+
 	arraylist_insert(milista, &insertado, 1);
 	
-	
+	printf("\nLista despues de insertar a Luis:\n");
+	for (int i = 0; i < milista->size; i++) {
+		printf("Posicion %d:\n", i);  
+		Persona *p = (Persona*)arraylist_get(milista, i);
+		imprimirPersona(p);
+	}
+
 	Persona *obtenido = (Persona*)arraylist_get(milista, 2);
 	
-	printf("Persona en posicion 2:\n");
+	printf("\nPersona en posicion 2:\n");
 	imprimirPersona(obtenido);
 	
-	
+
 	arraylist_remove(milista, 0); 
 	arraylist_remove(milista, 1); 
 	
-	
-	printf("\nLista despues de eliminar 2 personas:\n");
+
+	printf("\nLista después de eliminar 2 personas:\n");
 	for (int i = 0; i < milista->size; i++) {
 		Persona *p = (Persona*)arraylist_get(milista, i);
 		imprimirPersona(p);
@@ -54,4 +59,3 @@ int main() {
 	
 	return 0;
 }
-
